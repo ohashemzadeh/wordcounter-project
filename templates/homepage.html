@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome to Homepage</title>
+</head>
+<body>
+<h1>
+Welcome to word counter
+</h1>
+  <form action="counter" method="post">
+    {% csrf_token %}
+    <textarea name="mytext" rows="4" cols="50"></textarea>
+    <br>
+    <input type="submit" value="count">
+  </form>
+
+<hr>
+{% include 'about.html' with designer='Omid Hashemzadeh' %}
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Counting words just for you</title>
+</head>
+<body>
+
+<h1>Counting words</h1>
+
+phrase is : {{ txt }}
+<br>
+number of characters is : {{ characters_count }}
+<br>
+number of words is :  {{ word_count }}
+<br><hr>
+words_repeat : <br>
+
+{% for word , count in words_repeat %}
+  {{ word }} --> {{count}} <br>
+{% endfor %}
+
+<!--{{ words_repeat }}-->
+
+<br>
+<a href="{% url 'homepage' %}"> Count again </a>
+
+<hr>
+{% include 'about.html' with designer='Omid Hashemzadeh' %}
+
+</body>
+</html>
