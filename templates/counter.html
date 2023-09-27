@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Counting words just for you</title>
+    <meta charset="UTF-8">
+    <title>Word Counter by Omid Hashemzadeh</title>
 </head>
 <body>
 
-<h1>Counting words</h1>
+<h1>Word counter</h1>
 
-phrase is : {{ txt }}
+Phrase : {{ txt }}
 <br>
-number of characters is : {{ characters_count }}
+Number of characters : {{ characters_count }}
 <br>
-number of words is :  {{ word_count }}
-<br><hr>
-words_repeat : <br>
+Number of all words : {{ word_count }}
+<br>
+Number of unique words : {{ unique_words_count }}
+<hr>
+Words repetition : <br>
 
 {% for word , count in words_repeat %}
-  {{ word }} --> {{count}} <br>
+    {{ word }} --> {{ count }} <br>
 {% endfor %}
 
 <!--{{ words_repeat }}-->

@@ -1,38 +1,41 @@
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render
+
 
 def homepage(request):
-    return render(request, 'homepage.html' , {} )
+    return render(request, 'homepage.html', {})
+
 
 def counter(request):
-
-    if request.method =='POST':
-        template_name = 'counter.html'
-        txt = request.POST.get('mytext')
-        characters_count = len(txt)
-        words = txt.split(' ')
+    if request.method == 'POST':
+        template_name: str = 'counter.html'
+        txt: str = request.POST.get('mytext')
+        characters_count: int = len(txt)
+        words: list = txt.split(' ')
 
         # Counting repetition of each word
-        words_repeat = {}
-        for word in words :
-            if word in words_repeat:    # if word is in dictionary right now, add 1 count to it
-                words_repeat[word] +=1
-            else:   # if word is not in dictionary right now, add it to dictionary
-                words_repeat[word] = 1
+        words_repetition = {}
+        for word in words:
+            if word in words_repetition:
+                words_repetition[word] += 1
+                continue
+            words_repetition[word] = 1
 
-        # words_repeat =  i,j in sorted(words_repeat.keys())
-        words_repeat = {k: v for k, v in sorted(words_repeat.items(), key=lambda item: item[1])}  # Sorting dictionary
+        # Sorting the dictionary
+        words_repeat = {k: v for k, v in sorted(words_repetition.items(), key=lambda item: item[1])}
 
-        context = { 'txt':txt,
-                    'word_count' : len(words),
-                    'characters_count': characters_count,
-                    'words_repeat' : words_repeat.items()
-                    }
-        print (txt)
-        return render(request, template_name , context )
+        context = {
+            'txt': txt,
+            'word_count': len(words),
+            'unique_words_count': len(set(words)),
+            'characters_count': characters_count,
+            'words_repeat': words_repeat.items()
+        }
+        print(txt)
+        return render(request, template_name, context)
 
-    else:
-        return HttpResponse('<a href="/">Please getback and enter some text </a>')
+    return HttpResponse('<a href="/">Please getback and enter some text </a>')
+
 
 def about(request):
-    return render(request, 'about.html' , {} )
+    return render(request, 'about.html', {})
