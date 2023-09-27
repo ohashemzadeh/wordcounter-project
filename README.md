@@ -1,5 +1,5 @@
-# wordcounter-project
+# word counter project
 
 Hello everybody.
-This is very simple Django project by Omid Hashemzadeh.
-I hope you Enjoy it.
+This is a very simple Django project by Omid Hashemzadeh, which counts the number of entered words.
+I hope you enjoy it.
