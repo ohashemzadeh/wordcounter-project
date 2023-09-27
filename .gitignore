@@ -1,0 +1,37 @@
+.idea/
+.vscode/
+packages/
+*.pyc
+staticfiles/
+.pytest_cache
+
+### Python ###
+# Byte-compiled / optimized / DLL files
+*__pycache__/
+*.py[cod]
+*$py.class
+
+# Sqlite
+*.sqlite3
+*.sqlite3.*
+
+# Sublime settings
+nsg4.sublime-project
+nsg4.sublime-workspace
+
+# SonarQube
+.sonar/
+.scannerwork
+
+# Coverage reports
+.coverage
+.coverage.*
+coverage.xml
+settings.py   # #gitignore
+
+# Virtual environment
+venv/
+env/
+
+# environment variables
+.env
